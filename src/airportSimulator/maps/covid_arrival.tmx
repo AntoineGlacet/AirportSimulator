@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="400" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="114">
+ <tileset firstgid="1" source="../img/covid arrival 2F.tsx"/>
+ <tileset firstgid="2" source="../img/kenney_topdownshooter_32px.tsx"/>
+ <tileset firstgid="542" source="../img/character_sprites.tsx"/>
+ <objectgroup id="2" name="background" locked="1">
+  <properties>
+   <property name="fixed_sprite" type="bool" value="true"/>
+   <property name="layer" type="int" value="1"/>
+  </properties>
+  <object id="1" name="background" gid="1" x="0" y="1234" width="12000" height="1234"/>
+ </objectgroup>
+ <objectgroup id="8" name="desk_sprites" locked="1">
+  <properties>
+   <property name="fixed_sprite" type="bool" value="true"/>
+   <property name="layer" type="int" value="2"/>
+  </properties>
+  <object id="7" gid="511" x="516" y="290.667" width="100.667" height="32" rotation="-90"/>
+  <object id="83" gid="511" x="516.333" y="386.667" width="100.667" height="32" rotation="-90"/>
+  <object id="84" gid="511" x="516.333" y="482" width="100.667" height="32" rotation="-90"/>
+  <object id="85" gid="511" x="5630.67" y="642" width="100.667" height="32"/>
+  <object id="86" gid="511" x="5821.67" y="642" width="100.667" height="32"/>
+  <object id="87" gid="511" x="5725.67" y="642" width="100.667" height="32"/>
+  <object id="88" gid="511" x="5918.67" y="642" width="100.667" height="32"/>
+  <object id="89" gid="511" x="6015.67" y="642" width="100.667" height="32"/>
+  <object id="90" gid="511" x="6111.67" y="642" width="100.667" height="32"/>
+ </objectgroup>
+ <objectgroup id="9" name="staff_sprites" locked="1">
+  <properties>
+   <property name="fixed_sprite" type="bool" value="true"/>
+   <property name="layer" type="int" value="3"/>
+  </properties>
+  <object id="13" gid="543" x="474" y="221" width="22" height="25"/>
+  <object id="14" gid="543" x="474" y="253.5" width="22" height="25"/>
+  <object id="15" gid="543" x="473" y="284.5" width="22" height="25"/>
+  <object id="16" gid="543" x="473" y="317.5" width="22" height="25"/>
+  <object id="17" gid="543" x="473" y="349.5" width="22" height="25"/>
+  <object id="75" gid="543" x="473" y="381.5" width="22" height="25"/>
+  <object id="76" gid="543" x="473" y="413.5" width="22" height="25"/>
+  <object id="77" gid="543" x="473" y="413.5" width="22" height="25"/>
+  <object id="79" gid="543" x="473" y="413.5" width="22" height="25"/>
+  <object id="80" gid="543" x="473" y="445.5" width="22" height="25"/>
+  <object id="81" gid="543" x="473" y="445.5" width="22" height="25"/>
+  <object id="82" gid="543" x="473" y="477.5" width="22" height="25"/>
+  <object id="91" gid="3221226015" x="5637.33" y="597.5" width="22" height="25" rotation="90"/>
+  <object id="92" gid="3221226015" x="5668" y="597.5" width="22" height="25" rotation="90"/>
+  <object id="93" gid="3221226015" x="5699.67" y="597.833" width="22" height="25" rotation="90"/>
+  <object id="94" gid="3221226015" x="5732.33" y="598.166" width="22" height="25" rotation="90"/>
+  <object id="95" gid="3221226015" x="5765.33" y="598.5" width="22" height="25" rotation="90"/>
+  <object id="96" gid="3221226015" x="5795.33" y="598.166" width="22" height="25" rotation="90"/>
+  <object id="97" gid="3221226015" x="5827.67" y="597.833" width="22" height="25" rotation="90"/>
+  <object id="98" gid="3221226015" x="5859" y="598.166" width="22" height="25" rotation="90"/>
+  <object id="99" gid="3221226015" x="5891" y="597.833" width="22" height="25" rotation="90"/>
+  <object id="100" gid="3221226015" x="5924.33" y="596.833" width="22" height="25" rotation="90"/>
+  <object id="101" gid="3221226015" x="5956" y="596.833" width="22" height="25" rotation="90"/>
+  <object id="102" gid="3221226015" x="5987.33" y="597.5" width="22" height="25" rotation="90"/>
+  <object id="103" gid="3221226015" x="6020" y="597.5" width="22" height="25" rotation="90"/>
+  <object id="104" gid="3221226015" x="6050.67" y="597.833" width="22" height="25" rotation="90"/>
+  <object id="105" gid="3221226015" x="6084" y="598.166" width="22" height="25" rotation="90"/>
+  <object id="106" gid="3221226015" x="6116" y="597.5" width="22" height="25" rotation="90"/>
+  <object id="107" gid="3221226015" x="6148" y="597.5" width="22" height="25" rotation="90"/>
+  <object id="108" gid="3221226015" x="6178.67" y="597.5" width="22" height="25" rotation="90"/>
+ </objectgroup>
+ <objectgroup id="3" name="queues" locked="1">
+  <properties>
+   <property name="rectangles" type="bool" value="true"/>
+  </properties>
+  <object id="3" name="queue_A" x="576" y="192" width="384" height="289.333"/>
+  <object id="5" name="desk_A" x="512" y="192" width="32" height="288"/>
+  <object id="109" name="desk_B" x="5632" y="640" width="576" height="32"/>
+  <object id="111" name="queue_B" x="3904" y="576" width="1664" height="128"/>
+ </objectgroup>
+ <objectgroup id="4" name="points" locked="1">
+  <properties>
+   <property name="points" type="bool" value="true"/>
+  </properties>
+  <object id="2" name="spawn_point" x="1108" y="660">
+   <point/>
+  </object>
+  <object id="19" name="queue_A_exit" x="576" y="192">
+   <point/>
+  </object>
+  <object id="20" name="desk_A_exit" x="512" y="448">
+   <point/>
+  </object>
+  <object id="112" name="queue_B_exit" x="5536" y="672">
+   <point/>
+  </object>
+  <object id="113" name="desk_B_exit" x="6176" y="640">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

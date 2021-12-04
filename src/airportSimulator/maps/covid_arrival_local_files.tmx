@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="400" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="158">
+ <tileset firstgid="1" source="../img/covid arrival 2F.tsx"/>
+ <tileset firstgid="2" source="tiles_kenney_topdown.tsx"/>
+ <tileset firstgid="542" source="character_sprites.tsx"/>
+ <objectgroup id="2" name="background" locked="1">
+  <properties>
+   <property name="fixed_sprite" type="bool" value="true"/>
+   <property name="layer" type="int" value="1"/>
+  </properties>
+  <object id="1" name="background" gid="1" x="0" y="1234" width="12000" height="1234"/>
+ </objectgroup>
+ <objectgroup id="14" name="desk_sprites" locked="1">
+  <properties>
+   <property name="fixed_sprite" type="bool" value="true"/>
+   <property name="layer" type="int" value="2"/>
+  </properties>
+  <object id="114" gid="511" x="518" y="291.5" width="102" height="32" rotation="-90"/>
+  <object id="117" gid="511" x="518" y="387.5" width="102" height="32" rotation="-90"/>
+  <object id="118" gid="511" x="518" y="483.5" width="102" height="32" rotation="-90"/>
+  <object id="128" gid="511" x="5630" y="645" width="68.75" height="32"/>
+  <object id="129" gid="511" x="5694.13" y="645" width="68.75" height="32"/>
+  <object id="131" gid="511" x="5758.13" y="645" width="68.75" height="32"/>
+  <object id="132" gid="511" x="5822.13" y="645" width="68.75" height="32"/>
+  <object id="133" gid="511" x="5886.13" y="645" width="68.75" height="32"/>
+  <object id="134" gid="511" x="5949.63" y="645" width="68.75" height="32"/>
+  <object id="135" gid="511" x="6013.63" y="645" width="68.75" height="32"/>
+  <object id="136" gid="511" x="6077.63" y="645" width="68.75" height="32"/>
+  <object id="137" gid="511" x="6141.63" y="645" width="68.75" height="32"/>
+ </objectgroup>
+ <objectgroup id="13" name="character_sprites" locked="1">
+  <properties>
+   <property name="fixed_sprite" type="bool" value="true"/>
+   <property name="layer" type="int" value="3"/>
+  </properties>
+  <object id="119" gid="555" x="477" y="222" width="20" height="25"/>
+  <object id="120" gid="555" x="477" y="252.5" width="20" height="25"/>
+  <object id="121" gid="555" x="476.5" y="476.5" width="20" height="25"/>
+  <object id="122" gid="555" x="477" y="285" width="20" height="25"/>
+  <object id="123" gid="555" x="476" y="444.5" width="20" height="25"/>
+  <object id="124" gid="555" x="476.5" y="413" width="20" height="25"/>
+  <object id="125" gid="555" x="476.5" y="381.5" width="20" height="25"/>
+  <object id="126" gid="555" x="476.5" y="349.5" width="20" height="25"/>
+  <object id="127" gid="555" x="476" y="316.5" width="20" height="25"/>
+  <object id="139" gid="555" x="5635.5" y="604" width="20" height="25" rotation="90"/>
+  <object id="140" gid="555" x="5667" y="603.5" width="20" height="25" rotation="90"/>
+  <object id="142" gid="555" x="5730.5" y="603" width="20" height="25" rotation="90"/>
+  <object id="143" gid="555" x="5699.5" y="603.5" width="20" height="25" rotation="90"/>
+  <object id="144" gid="555" x="5765" y="603" width="20" height="25" rotation="90"/>
+  <object id="145" gid="555" x="5796" y="603.5" width="20" height="25" rotation="90"/>
+  <object id="147" gid="555" x="5829" y="604" width="20" height="25" rotation="90"/>
+ </objectgroup>
+ <objectgroup id="15" name="character_sprites_invisible" visible="0" locked="1">
+  <object id="146" gid="555" x="5859.5" y="604" width="20" height="25" rotation="90"/>
+  <object id="148" gid="555" x="5892" y="604" width="20" height="25" rotation="90"/>
+  <object id="149" gid="555" x="5923" y="604" width="20" height="25" rotation="90"/>
+  <object id="150" gid="555" x="5956" y="603.5" width="20" height="25" rotation="90"/>
+  <object id="151" gid="555" x="5987.5" y="604" width="20" height="25" rotation="90"/>
+  <object id="152" gid="555" x="6019.5" y="604" width="20" height="25" rotation="90"/>
+  <object id="153" gid="555" x="6052" y="604" width="20" height="25" rotation="90"/>
+  <object id="154" gid="555" x="6084" y="605" width="20" height="25" rotation="90"/>
+  <object id="155" gid="555" x="6115" y="604.5" width="20" height="25" rotation="90"/>
+  <object id="156" gid="555" x="6181" y="604.5" width="20" height="25" rotation="90"/>
+  <object id="157" gid="555" x="6151" y="603.5" width="20" height="25" rotation="90"/>
+ </objectgroup>
+ <objectgroup id="3" name="queues" locked="1">
+  <properties>
+   <property name="rectangles" type="bool" value="true"/>
+  </properties>
+  <object id="3" name="queue_A" x="576" y="192" width="384" height="289.333"/>
+  <object id="5" name="desk_A" x="512" y="192" width="32" height="288"/>
+  <object id="109" name="desk_B" x="5632" y="640" width="224" height="32"/>
+  <object id="111" name="queue_B" x="3904" y="576" width="1664" height="128"/>
+ </objectgroup>
+ <objectgroup id="4" name="points">
+  <properties>
+   <property name="points" type="bool" value="true"/>
+  </properties>
+  <object id="2" name="spawn_point" x="1108" y="660">
+   <point/>
+  </object>
+  <object id="19" name="queue_A_exit" x="576" y="192">
+   <point/>
+  </object>
+  <object id="20" name="desk_A_exit" x="512" y="448">
+   <point/>
+  </object>
+  <object id="112" name="queue_B_exit" x="5536" y="672">
+   <point/>
+  </object>
+  <object id="113" name="desk_B_exit" x="5824" y="640">
+   <point/>
+  </object>
+ </objectgroup>
+</map>
