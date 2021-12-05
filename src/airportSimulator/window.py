@@ -53,12 +53,12 @@ class Window:
         self.width = 1024
         self.height = 768
         self.tilesize = 32
-        self.bg_color = (250, 250, 250)
+        self.bg_color = BACKGROUND_COLOR
 
         self.fps = 60
         self.zoom = 5
 
-        self.offset = (0, 0)
+        self.offset = (-20 * TILESIZE, -20 * TILESIZE)
 
         self.mouse_last = (0, 0)
         self.mouse_down = False
@@ -81,6 +81,9 @@ class Window:
                     self.dct_tmx[obj.name] = Rectangle(
                         obj.x, obj.y, obj.width, obj.height
                     )
+
+            if "vectors" in object_group.properties.keys():
+                Vector = namedtuple("Vector", ["x", "y"])
 
             if "points" in object_group.properties.keys():
                 Point = namedtuple("Point", ["x", "y"])
@@ -246,15 +249,15 @@ class Window:
                 )
             self.screen.blit(sprite.image, self.convert((sprite.x, sprite.y)))
 
-        # for sprite in self.snake_queues:
-        #     sprite.image = pg.Surface(
-        #         (
-        #             sprite.width * TILESIZE * self.zoom,
-        #             sprite.height * TILESIZE * self.zoom,
-        #         )
-        #     )
-        #     sprite.image.fill(SNAKE_QUEUE_COLOR)
-        #     self.screen.blit(sprite.image, self.convert((sprite.pos.x, sprite.pos.y)))
+        for sprite in self.snake_queues:
+            sprite.image = pg.Surface(
+                (
+                    sprite.width * self.zoom,
+                    sprite.height * self.zoom,
+                )
+            )
+            sprite.image.fill(SNAKE_QUEUE_COLOR)
+            self.screen.blit(sprite.image, self.convert((sprite.pos.x, sprite.pos.y)))
 
         for sprite in self.mobs:
             self.scaled_mob_img = pg.transform.scale(

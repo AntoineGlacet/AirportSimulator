@@ -109,7 +109,7 @@ class Mob_variable(pg.sprite.Sprite):
 
         # image and initial position and hitbox
         self.image = win.scaled_mob_img.copy()
-        self.pos = vec(self.x, self.y) * TILESIZE
+        self.pos = vec(self.x, self.y)
         self.vel = vec(random.uniform(-1, 1), random.uniform(-1, 1)).normalize()
         self.acc = vec(0, 0)
         self.rot = 0
@@ -180,25 +180,20 @@ class Snake_queue(pg.sprite.Sprite):
         # define position and image
         self.x = x
         self.y = y
-        self.pos = vec(x, y) * TILESIZE
-        self.width = self.N_position_1fold
-        self.height = self.N_fold
-        self.x_exit = self.x
-        self.y_exit = self.y + self.height
+        self.pos = vec(x, y)
+        self.queue_dir_vec = vec(self.queue_dir_point.x, self.queue_dir_point.y) - vec(
+            self.x_exit, self.y_exit
+        )
 
-        # Update configurations TO BE CHANGED for now it's double the trouble
-        for attr, val in config.items():
-            setattr(self, attr, val)
-
-        self.N_position_total = self.N_fold * self.N_position_1fold
-        self.update_dct_centers()
+        self.update_dct_centers_test()
 
     def set_default_config(self):
-        self.N_fold = 4
-        self.N_position_1fold = 15
-        self.overflow_ratio = OVERFLOW_RATIO
+        self.height = 4 * TILESIZE
+        self.width = 15 * TILESIZE
+        self.overflow_ratio = 100
         self.pax_list = []
         self.child_sprites = []
+        self.queue_dir_vec = vec(0, -1) * TILESIZE
 
     def update_dct_centers(self):
         # dict with the coordinates of each waiting position, including overflow
@@ -211,33 +206,84 @@ class Snake_queue(pg.sprite.Sprite):
                 col = (n) % self.N_position_1fold
             else:
                 col = self.N_position_1fold - ((n) % self.N_position_1fold) - 1
-            x = self.x + col
-            y = self.y + self.height - (row + 1)
-            dct_centers_overflow[n] = vec(int(x), int(y)) * TILESIZE
+            x = self.x + col * TILESIZE
+            y = self.y + self.height - (row + 1) * TILESIZE
+            dct_centers_overflow[n] = vec(int(x), int(y))
 
         self.dct_centers_overflow = dct_centers_overflow
 
-    def change_config(self, x, y, N_position_1fold, N_fold):
-        # define position and image
-        self.x = x
-        self.y = y
-        self.N_position_1fold = N_position_1fold
-        self.N_fold = N_fold
-        self.pos = vec(x, y) * TILESIZE
-        self.width = N_position_1fold
-        self.height = N_fold
-        self.x_exit = self.x
-        self.y_exit = self.y + self.height
+    def update_dct_centers_test(self):
+        # dict with the coordinates of each waiting position, including overflow
+        dct_centers_overflow = {}
+        dct_centers_overflow[0] = vec(self.x_exit, self.y_exit)
+
+        # define the queue fold depending on its direction
+        if self.queue_dir_vec * vec(1, 0) == 0:
+            self.N_fold = self.height // TILESIZE
+            self.N_position_1fold = self.width // TILESIZE
+
+        if self.queue_dir_vec * vec(0, 1) == 0:
+            self.N_fold = self.width // TILESIZE
+            self.N_position_1fold = self.height // TILESIZE
 
         self.N_position_total = self.N_fold * self.N_position_1fold
-        self.image = pg.Surface(
-            (
-                self.width * TILESIZE * self.win.zoom,
-                self.height * TILESIZE * self.win.zoom,
-            )
+
+        # calculate queue parameters
+        next_fold_vec = self.queue_dir_vec
+
+        # prendre les deux vecteurs unitaire orthogonaux au self.queue_dir
+        next_pos_vec_candidates = (
+            self.queue_dir_vec.rotate(90),
+            self.queue_dir_vec.rotate(-90),
         )
-        self.image.fill(SNAKE_QUEUE_COLOR)
-        self.update_dct_centers()
+        # selectionner celui qui n'est pas hors du rectangle
+        found_next_pos_vec = False
+        for next_pos_vec_candidate in next_pos_vec_candidates:
+            next_pos = dct_centers_overflow[0] + next_pos_vec_candidate
+            if (self.x <= next_pos.x < self.x + self.width) and (
+                self.y <= next_pos.y < self.y + self.height
+            ):
+                next_pos_vec = next_pos_vec_candidate
+                found_next_pos_vec = True
+                print("found next pos vec = {}".format(next_pos_vec))
+
+        # si on trouve pas, c'est que c'est one column
+        if found_next_pos_vec == False:
+            next_pos_vec = self.queue_dir_vec
+
+        # loop through all the positions
+        dct_centers_overflow[0] = vec(self.x_exit, self.y_exit)
+        for n in range(1, self.overflow_ratio * self.N_position_total):
+            if n % self.N_position_1fold == 0:
+                next_pos_vec = -next_pos_vec
+                dct_centers_overflow[n] = dct_centers_overflow[n - 1] + next_fold_vec
+            else:
+                dct_centers_overflow[n] = dct_centers_overflow[n - 1] + next_pos_vec
+
+        self.dct_centers_overflow = dct_centers_overflow
+        print(self.dct_centers_overflow[0], self.x_exit, self.y_exit)
+
+    # def change_config(self, x, y, N_position_1fold, N_fold):
+    #     # define position and image
+    #     self.x = x
+    #     self.y = y
+    #     self.N_position_1fold = N_position_1fold
+    #     self.N_fold = N_fold
+    #     self.pos = vec(x, y) * TILESIZE
+    #     self.width = N_position_1fold
+    #     self.height = N_fold
+    #     self.x_exit = self.x
+    #     self.y_exit = self.y + self.height
+
+    #     self.N_position_total = self.N_fold * self.N_position_1fold
+    #     self.image = pg.Surface(
+    #         (
+    #             self.width * TILESIZE * self.win.zoom,
+    #             self.height * TILESIZE * self.win.zoom,
+    #         )
+    #     )
+    #     self.image.fill(SNAKE_QUEUE_COLOR)
+    #     self.update_dct_centers()
 
     def empty_queue_to_wander(self):
         self.pax_list = []

@@ -1,4 +1,9 @@
 import simpy
+from pathlib import Path
+import sys
+
+module_path = Path(__file__).parent.parent / "src/airportSimulator"
+sys.path.append(str(module_path) + "/")
 
 from settings import *
 from simulation import *
@@ -23,43 +28,32 @@ dct_step = {}
 
 def create_step(step_str, win):
 
-    dct_step["{}_queue".format(step_str)] = Snake_queue(
-        win,
-        win.dct_tmx["queue_{}".format(step_str)].x / TILESIZE,
-        win.dct_tmx["queue_{}".format(step_str)].y / TILESIZE,
-        config={
-            "N_fold": int(win.dct_tmx["queue_{}".format(step_str)].height / TILESIZE),
-            "N_position_1fold": int(
-                win.dct_tmx["queue_{}".format(step_str)].width / TILESIZE
-            ),
-            "x_exit": win.dct_tmx["queue_{}_exit".format(step_str)].x / TILESIZE,
-            "y_exit": win.dct_tmx["queue_{}_exit".format(step_str)].y / TILESIZE,
-        },
-    )
+    for sub_step in ["queue", "desk"]:
 
-    dct_step["{}_desk".format(step_str)] = Snake_queue(
-        win,
-        win.dct_tmx["desk_{}".format(step_str)].x / TILESIZE,
-        win.dct_tmx["desk_{}".format(step_str)].y / TILESIZE,
-        config={
-            "N_fold": int(win.dct_tmx["desk_{}".format(step_str)].height / TILESIZE),
-            "N_position_1fold": int(
-                win.dct_tmx["desk_{}".format(step_str)].width / TILESIZE
-            ),
-            "x_exit": win.dct_tmx["desk_{}_exit".format(step_str)].x / TILESIZE,
-            "y_exit": win.dct_tmx["desk_{}_exit".format(step_str)].y / TILESIZE,
-        },
-    )
+        dct_step["{}_{}".format(step_str, sub_step)] = Snake_queue(
+            win,
+            x=win.dct_tmx["{}_{}".format(sub_step, step_str)].x,
+            y=win.dct_tmx["{}_{}".format(sub_step, step_str)].y,
+            config={
+                "height": int(win.dct_tmx["{}_{}".format(sub_step, step_str)].height),
+                "width": int(win.dct_tmx["{}_{}".format(sub_step, step_str)].width),
+                "x_exit": win.dct_tmx["{}_{}_exit".format(sub_step, step_str)].x,
+                "y_exit": win.dct_tmx["{}_{}_exit".format(sub_step, step_str)].y,
+                "queue_dir_point": win.dct_tmx[
+                    "{}_{}_direction".format(sub_step, step_str)
+                ],
+            },
+        )
 
     # create process
     dct_step["{}_process".format(step_str)] = Custom_resource(
         arrival_area,
-        max_capacity=20 * N,
+        max_capacity=50,
         startup_capacity=max(
             int(win.dct_tmx["desk_{}".format(step_str)].height / TILESIZE),
             int(win.dct_tmx["desk_{}".format(step_str)].width / TILESIZE),
         ),
-        Pt=PT_CHECKIN_1step,  # make this variable by pax for 1/2 step
+        Pt=PT_CHECKIN_1step,  # make this variable borne by the pax for different type of process eg.: 1step 2step bag drop ...
         change_snake_queue=False,
     )
 
@@ -73,7 +67,6 @@ def create_step(step_str, win):
 
 create_step("A", win)
 create_step("B", win)
-
 
 process_list = ["A", "B"]
 

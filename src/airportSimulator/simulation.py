@@ -128,8 +128,8 @@ def Pax(arr, n, process_list):
     """
     # (x0, y0) = random.choice(SPAWN_POINTS)
     (x0, y0) = (
-        arr.win.dct_tmx["spawn_point"].x / TILESIZE,
-        arr.win.dct_tmx["spawn_point"].y / TILESIZE,
+        arr.win.dct_tmx["spawn_point"].x,
+        arr.win.dct_tmx["spawn_point"].y,
     )
 
     for index, str_process in enumerate(process_list):

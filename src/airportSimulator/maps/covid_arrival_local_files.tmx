@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="400" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="158">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="400" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="162">
  <tileset firstgid="1" source="../img/covid arrival 2F.tsx"/>
  <tileset firstgid="2" source="tiles_kenney_topdown.tsx"/>
  <tileset firstgid="542" source="character_sprites.tsx"/>
@@ -72,7 +72,7 @@
   <object id="109" name="desk_B" x="5632" y="640" width="224" height="32"/>
   <object id="111" name="queue_B" x="3904" y="576" width="1664" height="128"/>
  </objectgroup>
- <objectgroup id="4" name="points">
+ <objectgroup id="4" name="points" locked="1">
   <properties>
    <property name="points" type="bool" value="true"/>
   </properties>
@@ -89,6 +89,18 @@
    <point/>
   </object>
   <object id="113" name="desk_B_exit" x="5824" y="640">
+   <point/>
+  </object>
+  <object id="158" name="queue_A_direction" x="608" y="192">
+   <point/>
+  </object>
+  <object id="159" name="desk_A_direction" x="512" y="416">
+   <point/>
+  </object>
+  <object id="160" name="queue_B_direction" x="5504" y="672">
+   <point/>
+  </object>
+  <object id="161" name="desk_B_direction" x="5824" y="672">
    <point/>
   </object>
  </objectgroup>
