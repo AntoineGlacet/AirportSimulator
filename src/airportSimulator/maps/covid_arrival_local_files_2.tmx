@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="840" height="150" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="271">
+ <tileset firstgid="1" source="../img/covid arrival 2F.tsx"/>
+ <tileset firstgid="3" source="tiles_kenney_topdown.tsx"/>
+ <tileset firstgid="543" source="character_sprites.tsx"/>
+ <objectgroup id="2" name="background" locked="1">
+  <properties>
+   <property name="fixed_sprite" type="bool" value="true"/>
+   <property name="layer" type="int" value="1"/>
+  </properties>
+  <object id="163" gid="2" x="0" y="4800" width="25776" height="4672"/>
+ </objectgroup>
+ <objectgroup id="14" name="desk_sprites" locked="1">
+  <properties>
+   <property name="fixed_sprite" type="bool" value="true"/>
+   <property name="layer" type="int" value="2"/>
+  </properties>
+  <object id="114" gid="512" x="4678" y="3491.5" width="102" height="32" rotation="-90"/>
+  <object id="117" gid="512" x="4678" y="3587.5" width="102" height="32" rotation="-90"/>
+  <object id="118" gid="512" x="4678" y="3683.5" width="102" height="32" rotation="-90"/>
+  <object id="128" gid="512" x="9790" y="3845" width="68.75" height="32"/>
+  <object id="129" gid="512" x="9854.13" y="3845" width="68.75" height="32"/>
+  <object id="131" gid="512" x="9918.13" y="3845" width="68.75" height="32"/>
+  <object id="132" gid="512" x="9982.13" y="3845" width="68.75" height="32"/>
+  <object id="133" gid="512" x="10046.1" y="3845" width="68.75" height="32"/>
+  <object id="134" gid="512" x="10109.6" y="3845" width="68.75" height="32"/>
+  <object id="135" gid="512" x="10173.6" y="3845" width="68.75" height="32"/>
+  <object id="136" gid="512" x="10237.6" y="3845" width="68.75" height="32"/>
+  <object id="137" gid="512" x="10301.6" y="3845" width="68.75" height="32"/>
+  <object id="164" gid="512" x="10301.6" y="3845" width="68.75" height="32"/>
+  <object id="165" gid="512" x="15484" y="3500" width="68.75" height="32"/>
+  <object id="166" gid="512" x="15292" y="3500" width="68.75" height="32"/>
+  <object id="167" gid="512" x="15228" y="3500" width="68.75" height="32"/>
+  <object id="168" gid="512" x="15356" y="3500" width="68.75" height="32"/>
+  <object id="169" gid="512" x="15420" y="3500" width="68.75" height="32"/>
+  <object id="172" gid="512" x="14780" y="3500" width="68.75" height="32"/>
+  <object id="173" gid="512" x="14844" y="3500" width="68.75" height="32"/>
+  <object id="174" gid="512" x="14908" y="3500" width="68.75" height="32"/>
+  <object id="175" gid="512" x="14972" y="3500" width="68.75" height="32"/>
+  <object id="176" gid="512" x="15036" y="3500" width="68.75" height="32"/>
+  <object id="177" gid="512" x="15100" y="3500" width="68.75" height="32"/>
+  <object id="178" gid="512" x="15164" y="3500" width="68.75" height="32"/>
+  <object id="211" gid="512" x="13790" y="1701" width="68.75" height="32"/>
+  <object id="212" gid="512" x="13598" y="1701" width="68.75" height="32"/>
+  <object id="213" gid="512" x="13534" y="1701" width="68.75" height="32"/>
+  <object id="214" gid="512" x="13662" y="1701" width="68.75" height="32"/>
+  <object id="215" gid="512" x="13726" y="1701" width="68.75" height="32"/>
+  <object id="216" gid="512" x="13086" y="1701" width="68.75" height="32"/>
+  <object id="217" gid="512" x="13150" y="1701" width="68.75" height="32"/>
+  <object id="218" gid="512" x="13214" y="1701" width="68.75" height="32"/>
+  <object id="219" gid="512" x="13278" y="1701" width="68.75" height="32"/>
+  <object id="220" gid="512" x="13342" y="1701" width="68.75" height="32"/>
+  <object id="221" gid="512" x="13406" y="1701" width="68.75" height="32"/>
+  <object id="222" gid="512" x="13470" y="1701" width="68.75" height="32"/>
+ </objectgroup>
+ <objectgroup id="13" name="character_sprites" locked="1">
+  <properties>
+   <property name="fixed_sprite" type="bool" value="true"/>
+   <property name="layer" type="int" value="3"/>
+  </properties>
+  <object id="119" gid="556" x="4637" y="3422" width="20" height="25"/>
+  <object id="120" gid="556" x="4637" y="3452.5" width="20" height="25"/>
+  <object id="121" gid="556" x="4636.5" y="3676.5" width="20" height="25"/>
+  <object id="122" gid="556" x="4637" y="3485" width="20" height="25"/>
+  <object id="123" gid="556" x="4636" y="3644.5" width="20" height="25"/>
+  <object id="124" gid="556" x="4636.5" y="3613" width="20" height="25"/>
+  <object id="125" gid="556" x="4636.5" y="3581.5" width="20" height="25"/>
+  <object id="126" gid="556" x="4636.5" y="3549.5" width="20" height="25"/>
+  <object id="127" gid="556" x="4636" y="3516.5" width="20" height="25"/>
+  <object id="139" gid="556" x="9795.5" y="3804" width="20" height="25" rotation="90"/>
+  <object id="140" gid="556" x="9827" y="3803.5" width="20" height="25" rotation="90"/>
+  <object id="142" gid="556" x="9890.5" y="3803" width="20" height="25" rotation="90"/>
+  <object id="143" gid="556" x="9859.5" y="3803.5" width="20" height="25" rotation="90"/>
+  <object id="144" gid="556" x="9925" y="3803" width="20" height="25" rotation="90"/>
+  <object id="145" gid="556" x="9956" y="3803.5" width="20" height="25" rotation="90"/>
+  <object id="147" gid="556" x="9989" y="3804" width="20" height="25" rotation="90"/>
+  <object id="179" gid="556" x="14788" y="3457" width="20" height="25" rotation="90"/>
+  <object id="180" gid="556" x="14819.5" y="3456.5" width="20" height="25" rotation="90"/>
+  <object id="181" gid="556" x="14883" y="3456" width="20" height="25" rotation="90"/>
+  <object id="182" gid="556" x="14852" y="3456.5" width="20" height="25" rotation="90"/>
+  <object id="183" gid="556" x="14917.5" y="3456" width="20" height="25" rotation="90"/>
+  <object id="184" gid="556" x="14948.5" y="3456.5" width="20" height="25" rotation="90"/>
+  <object id="185" gid="556" x="14981.5" y="3457" width="20" height="25" rotation="90"/>
+  <object id="186" gid="556" x="15012" y="3457" width="20" height="25" rotation="90"/>
+  <object id="187" gid="556" x="15043.5" y="3456.5" width="20" height="25" rotation="90"/>
+  <object id="188" gid="556" x="15107" y="3456" width="20" height="25" rotation="90"/>
+  <object id="189" gid="556" x="15076" y="3456.5" width="20" height="25" rotation="90"/>
+  <object id="190" gid="556" x="15141.5" y="3456" width="20" height="25" rotation="90"/>
+  <object id="191" gid="556" x="15172.5" y="3456.5" width="20" height="25" rotation="90"/>
+  <object id="192" gid="556" x="15205.5" y="3457" width="20" height="25" rotation="90"/>
+  <object id="193" gid="556" x="15236" y="3457" width="20" height="25" rotation="90"/>
+  <object id="194" gid="556" x="15267.5" y="3456.5" width="20" height="25" rotation="90"/>
+  <object id="195" gid="556" x="15331" y="3456" width="20" height="25" rotation="90"/>
+  <object id="196" gid="556" x="15300" y="3456.5" width="20" height="25" rotation="90"/>
+  <object id="197" gid="556" x="15365.5" y="3456" width="20" height="25" rotation="90"/>
+  <object id="198" gid="556" x="15396.5" y="3456.5" width="20" height="25" rotation="90"/>
+  <object id="199" gid="556" x="15429.5" y="3457" width="20" height="25" rotation="90"/>
+  <object id="200" gid="556" x="15460" y="3456" width="20" height="25" rotation="90"/>
+  <object id="201" gid="556" x="15491" y="3456.5" width="20" height="25" rotation="90"/>
+  <object id="202" gid="556" x="15524" y="3457" width="20" height="25" rotation="90"/>
+  <object id="223" gid="556" x="13092" y="1663" width="20" height="25" rotation="90"/>
+  <object id="224" gid="556" x="13123.5" y="1662.5" width="20" height="25" rotation="90"/>
+  <object id="225" gid="556" x="13187" y="1662" width="20" height="25" rotation="90"/>
+  <object id="226" gid="556" x="13156" y="1662.5" width="20" height="25" rotation="90"/>
+  <object id="227" gid="556" x="13221.5" y="1662" width="20" height="25" rotation="90"/>
+  <object id="228" gid="556" x="13252.5" y="1662.5" width="20" height="25" rotation="90"/>
+  <object id="229" gid="556" x="13285.5" y="1663" width="20" height="25" rotation="90"/>
+  <object id="230" gid="556" x="13316" y="1663" width="20" height="25" rotation="90"/>
+  <object id="231" gid="556" x="13347.5" y="1662.5" width="20" height="25" rotation="90"/>
+  <object id="232" gid="556" x="13411" y="1662" width="20" height="25" rotation="90"/>
+  <object id="233" gid="556" x="13380" y="1662.5" width="20" height="25" rotation="90"/>
+  <object id="234" gid="556" x="13445.5" y="1662" width="20" height="25" rotation="90"/>
+  <object id="235" gid="556" x="13476.5" y="1662.5" width="20" height="25" rotation="90"/>
+  <object id="236" gid="556" x="13509.5" y="1663" width="20" height="25" rotation="90"/>
+  <object id="237" gid="556" x="13540" y="1663" width="20" height="25" rotation="90"/>
+  <object id="238" gid="556" x="13571.5" y="1662.5" width="20" height="25" rotation="90"/>
+  <object id="239" gid="556" x="13635" y="1662" width="20" height="25" rotation="90"/>
+  <object id="240" gid="556" x="13604" y="1662.5" width="20" height="25" rotation="90"/>
+  <object id="241" gid="556" x="13669.5" y="1662" width="20" height="25" rotation="90"/>
+  <object id="242" gid="556" x="13700.5" y="1662.5" width="20" height="25" rotation="90"/>
+  <object id="243" gid="556" x="13733.5" y="1663" width="20" height="25" rotation="90"/>
+  <object id="244" gid="556" x="13764" y="1662" width="20" height="25" rotation="90"/>
+  <object id="245" gid="556" x="13795" y="1662.5" width="20" height="25" rotation="90"/>
+  <object id="246" gid="556" x="13828" y="1663" width="20" height="25" rotation="90"/>
+ </objectgroup>
+ <objectgroup id="15" name="character_sprites_invisible" locked="1">
+  <object id="146" gid="556" x="10019.5" y="3804" width="20" height="25" rotation="90"/>
+  <object id="148" gid="556" x="10052" y="3804" width="20" height="25" rotation="90"/>
+  <object id="149" gid="556" x="10083" y="3804" width="20" height="25" rotation="90"/>
+  <object id="150" gid="556" x="10116" y="3803.5" width="20" height="25" rotation="90"/>
+  <object id="151" gid="556" x="10147.5" y="3804" width="20" height="25" rotation="90"/>
+  <object id="152" gid="556" x="10179.5" y="3804" width="20" height="25" rotation="90"/>
+  <object id="153" gid="556" x="10212" y="3804" width="20" height="25" rotation="90"/>
+  <object id="154" gid="556" x="10244" y="3805" width="20" height="25" rotation="90"/>
+  <object id="155" gid="556" x="10275" y="3804.5" width="20" height="25" rotation="90"/>
+  <object id="156" gid="556" x="10341" y="3804.5" width="20" height="25" rotation="90"/>
+  <object id="157" gid="556" x="10311" y="3803.5" width="20" height="25" rotation="90"/>
+ </objectgroup>
+ <objectgroup id="3" name="queues">
+  <properties>
+   <property name="rectangles" type="bool" value="true"/>
+  </properties>
+  <object id="3" name="queue_A" x="4736" y="3392" width="384" height="289.333"/>
+  <object id="5" name="desk_A" x="4672" y="3392" width="32" height="288"/>
+  <object id="109" name="desk_B" x="9792" y="3840" width="224" height="32"/>
+  <object id="111" name="queue_B" x="8064" y="3776" width="1664" height="128"/>
+  <object id="203" name="queue_7" x="14048" y="3552" width="1504" height="192"/>
+  <object id="204" name="desk_7" x="14784" y="3488" width="768" height="32"/>
+  <object id="247" name="queue_2" x="13888" y="1664" width="4736" height="96"/>
+  <object id="248" name="desk_2" x="13088" y="1696" width="768" height="32"/>
+ </objectgroup>
+ <objectgroup id="4" name="points">
+  <properties>
+   <property name="points" type="bool" value="true"/>
+  </properties>
+  <object id="2" name="stairs_out" x="5268" y="3860">
+   <point/>
+  </object>
+  <object id="19" name="queue_A_exit" x="4736" y="3392">
+   <point/>
+  </object>
+  <object id="20" name="desk_A_exit" x="4672" y="3648">
+   <point/>
+  </object>
+  <object id="112" name="queue_B_exit" x="9696" y="3872">
+   <point/>
+  </object>
+  <object id="113" name="desk_B_exit" x="9984" y="3840">
+   <point/>
+  </object>
+  <object id="158" name="queue_A_direction" x="4768" y="3392">
+   <point/>
+  </object>
+  <object id="159" name="desk_A_direction" x="4672" y="3616">
+   <point/>
+  </object>
+  <object id="160" name="queue_B_direction" x="9664" y="3872">
+   <point/>
+  </object>
+  <object id="161" name="desk_B_direction" x="9984" y="3872">
+   <point/>
+  </object>
+  <object id="205" name="queue_7_exit" x="15520" y="3552">
+   <point/>
+  </object>
+  <object id="206" name="desk_7_exit" x="15520" y="3488">
+   <point/>
+  </object>
+  <object id="207" name="queue_7_direction" x="15488" y="3552">
+   <point/>
+  </object>
+  <object id="208" name="desk_7_direction" x="15520" y="3520">
+   <point/>
+  </object>
+  <object id="210" name="spawn_point" x="21792" y="1728">
+   <point/>
+  </object>
+  <object id="249" name="queue_2_exit" x="13888" y="1728">
+   <point/>
+  </object>
+  <object id="250" name="desk_2_exit" x="13088" y="1696">
+   <point/>
+  </object>
+  <object id="251" name="queue_2_direction" x="13920" y="1728">
+   <point/>
+  </object>
+  <object id="252" name="desk_2_direction" x="13088" y="1728">
+   <point/>
+  </object>
+  <object id="257" name="stairs_in" x="5728" y="1568">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

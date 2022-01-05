@@ -26,7 +26,7 @@ arrival_area.link_GUI(win)
 dct_step = {}
 
 
-def create_step(step_str, win):
+def create_step(step_str, win, Pt=PT_CHECKIN_1step):
 
     for sub_step in ["queue", "desk"]:
 
@@ -53,7 +53,7 @@ def create_step(step_str, win):
             int(win.dct_tmx["desk_{}".format(step_str)].height / TILESIZE),
             int(win.dct_tmx["desk_{}".format(step_str)].width / TILESIZE),
         ),
-        Pt=PT_CHECKIN_1step,  # make this variable borne by the pax for different type of process eg.: 1step 2step bag drop ...
+        Pt=Pt,  # make this variable borne by the pax for different type of process eg.: 1step 2step bag drop ...
         change_snake_queue=False,
     )
 
@@ -67,8 +67,12 @@ def create_step(step_str, win):
 
 create_step("A", win)
 create_step("B", win)
+create_step("2", win, Pt=0)
+create_step("7", win)
 
-process_list = ["A", "B"]
+# add stairs to process list to prevent wandering of Pax
+arrival_area.dct_process["take_stairs"] = "dummy"
+process_list = ["2", "take_stairs", "A", "B", "7"]
 
 arrival_area.env.process(Pax_generator(arrival_area, 5, 600 / 60, process_list))
 

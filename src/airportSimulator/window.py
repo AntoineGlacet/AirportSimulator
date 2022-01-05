@@ -1,11 +1,14 @@
 from typing import NamedTuple
+import numpy as np
+import matplotlib.pyplot as plt
 import pygame as pg
 from pygame import gfxdraw
 import numpy as np
-from os import path
+from os import path, sep
 from settings import *
 from sprites import *
 from tiledmap import *
+
 
 from collections import namedtuple
 
@@ -45,6 +48,27 @@ class Window:
         pg.font.init()
         self.text_font = pg.font.SysFont("Lucida Console", 16)
         self.tag_font = pg.font.SysFont("Calibri", 16)
+
+        # Create a plot window
+        # creating initial data values
+        # of x and y
+        self.i = 0
+        self.x = np.linspace(0, 10, 100)
+        self.y = np.sin(self.x)
+
+        # to run GUI event loop
+        plt.ion()
+
+        # here we are creating sub plots
+        self.figure, ax = plt.subplots(figsize=(10, 8))
+        (self.line1,) = ax.plot(self.x, self.y)
+
+        # setting title
+        plt.title("Geeks For Geeks", fontsize=20)
+
+        # setting x-axis label and y-axis label
+        plt.xlabel("X-axis")
+        plt.ylabel("Y-axis")
 
         self.load_data()
 
@@ -267,6 +291,23 @@ class Window:
 
             self.screen.blit(sprite.image, self.convert((sprite.pos.x, sprite.pos.y)))
 
+    def draw_graph(self):
+        # creating new Y values
+        self.i += 1
+        new_y = np.sin(self.x - 0.5 * self.i)
+
+        # updating data values
+        self.line1.set_xdata(self.x)
+        self.line1.set_ydata(new_y)
+
+        # drawing updated values
+        self.figure.canvas.draw()
+
+        # This will run the GUI event
+        # loop until all UI events
+        # currently waiting have been processed
+        self.figure.canvas.flush_events()
+
     def draw(self):
         # Fill background
         self.background(*self.bg_color)
@@ -280,3 +321,12 @@ class Window:
         # Draw status info
         self.draw_status()
         pg.display.flip()
+
+        # Draw graphs
+        if self.sim.env.now == 0:
+            self.draw_graph()
+            self.last_graph_draw_time = self.sim.env.now
+
+        if self.sim.env.now - self.last_graph_draw_time > 1:
+            self.draw_graph()
+            self.last_graph_draw_time = self.sim.env.now

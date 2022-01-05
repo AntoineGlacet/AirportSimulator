@@ -3,7 +3,7 @@ from statistics import mean
 
 # parameters
 
-MAP_NAME = "covid_arrival_local_files.tmx"
+MAP_NAME = "covid_arrival_local_files_2.tmx"
 TILESIZE = 32
 ZOOM = 0.5
 FPS = 60 * 5

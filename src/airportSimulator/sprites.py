@@ -90,6 +90,8 @@ class Mob_fixed(pg.sprite.Sprite):
 class Mob_variable(pg.sprite.Sprite):
     """
     Mob spawns at (x0,y0), goes to a "queue" and disappears
+    can also be used as a wandering mob
+    can also be used to go to point
     """
 
     def __init__(self, win, x0, y0, n, target_queue, **kwargs):
@@ -103,6 +105,7 @@ class Mob_variable(pg.sprite.Sprite):
         self.queue = target_queue
         self.arrived = False
         self.wandering = False
+        self.goto_mode = False
 
         # kwargs
         self.__dict__.update(kwargs)
@@ -147,9 +150,19 @@ class Mob_variable(pg.sprite.Sprite):
             self.kill()
             self.arrived = True
 
+    def goto_point(self):
+        target = self.target_point
+        target_dist = self.goto(*target)
+
+        if target_dist.length() < REACH_TOLERANCE * TILESIZE:
+            self.kill()
+            self.arrived = True
+
     def update(self):
         if self.wandering == True:
             self.wander()
+        elif self.goto_mode == True:
+            self.goto_point()
         else:
             self.goto_queue()
 

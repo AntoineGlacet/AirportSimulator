@@ -126,6 +126,7 @@ def Pax(arr, n, process_list):
     """
     function that generate one Pax in an instanciated arrival area in a simulation env
     """
+    # initial spawn point
     # (x0, y0) = random.choice(SPAWN_POINTS)
     (x0, y0) = (
         arr.win.dct_tmx["spawn_point"].x,
@@ -133,24 +134,38 @@ def Pax(arr, n, process_list):
     )
 
     for index, str_process in enumerate(process_list):
-        # if index != 0:
-        #     previous_process = arr.dct_process[process_list[index-1]]
-        #     (x0, y0) = (previous_process.desk_queue.x_exit, previous_process.desk_queue.y_exit)
 
-        # wait for process opening if needed
-        if process_list[index] not in arr.dct_process.keys():
-            mob_wandering = Mob_variable(arr.win, x0, y0, n, None, wandering=True)
+        # Pax take stairs case
+        if str_process == "take_stairs":
+            # position of staircase
+            (x, y) = (
+                arr.win.dct_tmx["stairs_in"].x,
+                arr.win.dct_tmx["stairs_in"].y,
+            )
+            # spawn a mob that goes to stairs and disappear
+            Mob_variable(arr.win, x0, y0, n, None, goto_mode=True, target_point=(x, y))
 
-            while process_list[index] not in arr.dct_process.keys():
-                yield arr.env.process(arr.time_out(10 / 60))
+            # update (x0, y0) for next process
+            (x0, y0) = (
+                arr.win.dct_tmx["stairs_out"].x,
+                arr.win.dct_tmx["stairs_out"].y,
+            )
 
-            (x0, y0) = mob_wandering.pos / TILESIZE
-            mob_wandering.kill()
+        else:
+            # wait for process opening if needed
+            if process_list[index] not in arr.dct_process.keys():
+                mob_wandering = Mob_variable(arr.win, x0, y0, n, None, wandering=True)
 
-        process = arr.dct_process[process_list[index]]
-        (x, y) = (process.desk_queue.x_exit, process.desk_queue.y_exit)
-        yield arr.env.process(arr.queue_process(x0, y0, n, str_process))
-        (x0, y0) = (x, y)
+                while process_list[index] not in arr.dct_process.keys():
+                    yield arr.env.process(arr.time_out(10 / 60))
+
+                (x0, y0) = mob_wandering.pos / TILESIZE
+                mob_wandering.kill()
+
+            process = arr.dct_process[process_list[index]]
+            (x, y) = (process.desk_queue.x_exit, process.desk_queue.y_exit)
+            yield arr.env.process(arr.queue_process(x0, y0, n, str_process))
+            (x0, y0) = (x, y)
 
 
 def Pax_generator(arr, N, H, process_list):
